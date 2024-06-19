@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: streamimage
+  labels:
+    app: k8s-hackaton
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k8s-hackaton
+  template:
+    metadata:
+      labels:
+        app: k8s-hackaton
+    spec:
+      containers:
+      - name: k8s-hackaton
+        image: europe-north1-docker.pkg.dev/gke-hackaton-426920/gke-hackaton/streamimage:latest
