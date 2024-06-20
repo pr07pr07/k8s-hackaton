@@ -7,7 +7,7 @@ metadata:
   name: canary-ro
   namespace: canary
 spec:
-  replicas: 3
+  replicas: 5
   #revisionHistoryLimit: 2
   selector:
     matchLabels:
@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: rollouts-demo
-        image: europe-north1-docker.pkg.dev/gke-hackaton-426920/gke-hackaton/streamimage:stage
+        image: europe-north1-docker.pkg.dev/gke-hackaton-426920/gke-hackaton/streamimage:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
@@ -29,7 +29,8 @@ spec:
       - setWeight: 20
       # The following pause step will pause the rollout indefinitely until manually resumed.
       # Rollouts can be manually resumed by running `kubectl argo rollouts promote ROLLOUT`
-      - pause: {}
+      - pause: {duration: 20s}
+      #- pause: {}
       #- setWeight: 40
       #- pause: {duration: 40s}
       #- setWeight: 60
