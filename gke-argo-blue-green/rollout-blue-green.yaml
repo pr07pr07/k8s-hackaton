@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: rollouts-demo
-        image: europe-north1-docker.pkg.dev/gke-hackaton-426920/gke-hackaton/streamimage:stage
+        image: europe-north1-docker.pkg.dev/gke-hackaton-426920/gke-hackaton/streamimage:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
